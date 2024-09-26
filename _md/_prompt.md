@@ -1,0 +1,5 @@
+/*
+    voici ce que je veux faire, je veux avoir une view qui va calculer le montant des ventes realisés par pompe. Voici le deroulement : Quand la parité d'un pompiste est TRUE, c'est que le pompiste a terminé sa session et qu'il a enregistré un nouveau montant au compteur ... par exemple, le pompiste commence sa journée et enregistre pour la premiere fois dans le compteur 1.000$ avec une date de 26/09/24 sur la pompe A. Sa parité est FALSE, ce qui veut dire qu'il n'a pas encore enregistré de vente ... Ensuite il enregistre une 2eme fois au compteur , 1.400$ avec la date 27/09/24 , toujours sur la pompe A. Sa parité est TRUE, donc il a enregistré des ventes ... le montant de la vente est donc le montant la difference entre  le montant actuel qu'il vient de rentrée (1.400$) et le montant precedent (1.000$). 1400-1000 = 400$. il a donc realisé une vente de 400$ sur la pompe A.
+
+    Un pompiste va donc enregistré n ventes sur le compteur, ce que je veux avoir c'est une view avec les colonnes suivantes: id_pompiste, id_pompe, date_beginning_session, date_end_session, amount_beginning, amount_end . As tu compris ce que je veux faire ?      
+*/

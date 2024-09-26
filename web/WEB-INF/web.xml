@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+    <servlet>
+        <servlet-name>TestStationServlet</servlet-name>
+        <servlet-class>servlet.TestStationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestStationServlet</servlet-name>
+        <url-pattern>/TestStationServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PersonServlet</servlet-name>
+        <servlet-class>servlet.PersonServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PersonServlet</servlet-name>
+        <url-pattern>/PersonServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MainController</servlet-name>
+        <servlet-class>servlet.MainController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainController</servlet-name>
+        <url-pattern>/MainController</url-pattern>
+    </servlet-mapping>
+
+     <servlet>
+        <servlet-name>CounterController</servlet-name>
+        <servlet-class>servlet.CounterController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CounterController</servlet-name>
+        <url-pattern>/CounterController</url-pattern>
+    </servlet-mapping>
+
+</web-app>

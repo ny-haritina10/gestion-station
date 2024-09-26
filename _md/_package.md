@@ -1,0 +1,4 @@
+- caisse
+- depense
+- facturefournisseur
+- mg/cnpas/compta
