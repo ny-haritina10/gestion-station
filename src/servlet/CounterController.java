@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.counter.Counter;
 import model.pompe.Pompe;
 import model.pompe.Pompiste;
+import model.product.Product;
 
 public class CounterController extends HttpServlet {
     
@@ -53,7 +54,15 @@ public class CounterController extends HttpServlet {
             counter.setDateSession(date);
             counter.setPompe(pompe);
             counter.setPompiste(pompiste);
+            counter.setProduct(new Product().getById(3, Product.class, null));
 
+            String isPayed = req.getParameter("isPayed");
+
+            System.out.println("-------------------------");
+            System.out.println("IS PAYED HERE : " + isPayed);
+            System.out.println("-------------------------");
+
+            counter.setIsPayed(isPayed);
             counter.insert();
 
             resp.sendRedirect("index.jsp");

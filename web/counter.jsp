@@ -9,7 +9,7 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Counter</h1>
+  <h1>Gas Station Counter</h1>
 
   <form action="" method="post">
     <p>
@@ -60,6 +60,18 @@
           }
         %>
       </select>
+    </p>
+
+    <p>
+      <p>
+        TRUE:
+        <input type="radio" name="isPayed" value="TRUE"> 
+      </p>
+
+      <p>
+        FALSE:
+        <input type="radio" name="isPayed" value="FALSE">
+      </p>
     </p>
 
     <input type="submit" value="Submit">

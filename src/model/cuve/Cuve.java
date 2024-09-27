@@ -2,24 +2,36 @@ package model.cuve;
 
 import java.sql.*;
 import base.BaseModel;
+import model.pompe.Pompe;
+import model.product.Product;
 
-public class Cuve extends BaseModel<Cuve>{
+public class Cuve extends BaseModel<Cuve> {
 
     private int id;
     private String name;
     private double qteMax;
     private double qteInitial;
+    private Pompe pompe;
+    private Product product;
 
     // Constructor
     public Cuve() 
     { }
 
-    public Cuve(int id, String name, double qteMax, double qteInitial) {
+    public Cuve(int id, String name, double qteMax, double qteInitial, Pompe pompe, Product product) {
         setId(id);
         setName(name);
         setQteMax(qteMax);
         setQteInitial(qteInitial);
+        setPompe(pompe);
+        setProduct(product);
     }
+
+    public Pompe getPompe() 
+    { return pompe; }
+
+    public void setPompe(Pompe pompe) 
+    { this.pompe = pompe; }
 
     public int getId() 
     { return id; }
@@ -77,7 +89,15 @@ public class Cuve extends BaseModel<Cuve>{
         String name = resultSet.getString("name");
         double qteMax = resultSet.getDouble("qte_max");
         double qteInitial = resultSet.getDouble("qte_initial");
+        Pompe pompe = new Pompe().getById(resultSet.getInt("id_pompe"), Pompe.class, null);
+        Product product = new Product().getById(resultSet.getInt("id_product"), Product.class, null);
         
-        return new Cuve(id, name, qteMax, qteInitial);
+        return new Cuve(id, name, qteMax, qteInitial, pompe, product);
     }
+
+    public Product getProduct() 
+    { return product; }
+
+    public void setProduct(Product product) 
+    { this.product = product; }
 }
