@@ -1,3 +1,19 @@
+/*
+    1/ 
+    CASH IN : v_ventes_per_pompe_and_date
+    CASH OUT: v_ravitaillement
+
+    2/
+    STOCK: v_stock_restant 
+
+    3/ 
+    PROFIT: v_profit
+
+    4/ 
+    DETTE: v_get_dette
+    CREANCES: v_get_creances
+*/
+
 --
 -- PARITé
 --
@@ -180,7 +196,7 @@ LEFT JOIN
     V_stock_restant vsr ON p.id = vsr.id_product AND c.id_pompe = vsr.pompe;
 
 --
--- SITUATION DE DETTE ET DE CREANCES
+-- SITUATION DE DETTE
 -- 
 CREATE OR REPLACE VIEW v_get_dette AS 
 SELECT 

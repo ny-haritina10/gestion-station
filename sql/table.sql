@@ -2,12 +2,6 @@
 -- TABLE 
 --
 
--- MAGASIN
-CREATE TABLE Magasin (
-    id INT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
-);
-
 -- POMPISTE
 CREATE TABLE Pompiste (
     id INT PRIMARY KEY,

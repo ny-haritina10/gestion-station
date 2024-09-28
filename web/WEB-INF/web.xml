@@ -31,13 +31,67 @@
         <url-pattern>/MainController</url-pattern>
     </servlet-mapping>
 
-     <servlet>
+    <servlet>
         <servlet-name>CounterController</servlet-name>
         <servlet-class>servlet.CounterController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CounterController</servlet-name>
         <url-pattern>/CounterController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VenteController</servlet-name>
+        <servlet-class>servlet.VenteController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VenteController</servlet-name>
+        <url-pattern>/VenteController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RavitaillementController</servlet-name>
+        <servlet-class>servlet.RavitaillementController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RavitaillementController</servlet-name>
+        <url-pattern>/RavitaillementController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StockRestantController</servlet-name>
+        <servlet-class>servlet.StockRestantController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StockRestantController</servlet-name>
+        <url-pattern>/StockRestantController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProfitController</servlet-name>
+        <servlet-class>servlet.ProfitController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfitController</servlet-name>
+        <url-pattern>/ProfitController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DetteController</servlet-name>
+        <servlet-class>servlet.DetteController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetteController</servlet-name>
+        <url-pattern>/DetteController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CreanceController</servlet-name>
+        <servlet-class>servlet.CreanceController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreanceController</servlet-name>
+        <url-pattern>/CreanceController</url-pattern>
     </servlet-mapping>
 
 </web-app>

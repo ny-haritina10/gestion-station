@@ -9,7 +9,7 @@ import database.Database;
 public abstract class BaseModel<T> {
 
     @SuppressWarnings("unchecked")
-    public T[] getAll(Class<T> clazz, Connection con)
+    public T[] getAll(Class<T> clazz, Connection con, String tableName)
         throws Exception
     {
         Vector<T> list= new Vector<T>();
@@ -24,7 +24,11 @@ public abstract class BaseModel<T> {
                 valid = false;
             }
 
-            String sql = "SELECT * FROM " + this.getClass().getSimpleName();
+            String sql = "SELECT * FROM " + (tableName != null ? tableName : this.getClass().getSimpleName());
+            
+            System.out.println("------------------");
+            System.out.println("SQL: " + sql);
+            System.out.println("------------------");
             state = con.createStatement();
             result = state.executeQuery(sql);
 
@@ -33,17 +37,14 @@ public abstract class BaseModel<T> {
                 list.add(item);
             }
         } 
-        
         catch (Exception e) 
         { e.printStackTrace(); }
-        
         finally {
             try {
                 if (state != null) state.close(); 
                 if (result != null ) result.close(); 
                 if (valid == false || con !=null) con.close(); 
             } 
-            
             catch (Exception e) 
             { e.printStackTrace(); }
         }
@@ -54,7 +55,13 @@ public abstract class BaseModel<T> {
         return items;
     }
 
-    public T getById(int id, Class<T> clazz, Connection con) 
+    public T[] getAll(Class<T> clazz, Connection con) 
+        throws Exception 
+    {
+        return getAll(clazz, con, null);
+    }
+
+    public T getById(int id, Class<T> clazz, Connection con, String tableName) 
         throws Exception 
     {
         T item = null;
@@ -68,8 +75,8 @@ public abstract class BaseModel<T> {
                 valid = false;
             }
 
-            String tableName = this.getClass().getSimpleName();
-            String sql = "SELECT * FROM " + tableName + " WHERE id = ?";
+            String actualTableName = tableName != null ? tableName : this.getClass().getSimpleName();
+            String sql = "SELECT * FROM " + actualTableName + " WHERE id = ?";
 
             state = con.prepareStatement(sql);
             state.setInt(1, id);
@@ -79,22 +86,25 @@ public abstract class BaseModel<T> {
             if(result.next()) 
             { item = mapRow(result); }
         } 
-        
         catch (Exception e) 
         { e.printStackTrace(); } 
-        
         finally {
             try {
                 if (state != null) state.close(); 
                 if (result != null) result.close(); 
                 if (!valid || con != null) con.close(); 
             } 
-            
             catch (Exception e) 
             { e.printStackTrace(); }
         }
 
         return item;
+    }
+
+    public T getById(int id, Class<T> clazz, Connection con) 
+        throws Exception 
+    {
+        return getById(id, clazz, con, null);
     }
 
     protected abstract T mapRow(ResultSet result) throws Exception;

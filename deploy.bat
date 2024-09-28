@@ -1,6 +1,6 @@
 @echo off
 
-set "root=D:\Studies\ITU\S5\INF 301 - Architechture Logiciel\code\wildfly-ejb\EJBClient"
+set "root=D:\Studies\ITU\S5\INF301_Architechture-Logiciel\code\wildfly-ejb\EJBClient"
 set "bin=%root%\bin"
 set "lib=%root%\lib"
 set "web=%root%\web"
@@ -14,8 +14,9 @@ for /r "%src%" %%f in (*.java) do (
     xcopy "%%f" "%temp%"
 )
 
-javac -d "%bin%" -cp "%lib%\*" "%temp%\*.java"
-
+cd "%temp%"
+javac -d "%bin%" -cp "%lib%\*" *.java
+cd %root%
 
 @REM rem Set the path to your Wildfly deployments folder
 xcopy /s /e /i "%lib%\*" "%web%\WEB-INF\lib\"
@@ -26,8 +27,8 @@ jar -cvf "%war_name%.war" -C "%web%" .
 
 copy "%war_name%.war" "%target_dir%"
 
-del "%target_name%.war"
-rd /s /q "%temp%"
+del "%war_name%.war"
+rmdir /s /q "%temp%"
 
 echo Deployment complete.
 pause

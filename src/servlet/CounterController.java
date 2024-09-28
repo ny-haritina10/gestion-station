@@ -44,6 +44,7 @@ public class CounterController extends HttpServlet {
 
             double amount = Double.parseDouble(amountStr);
             Date date = Date.valueOf(req.getParameter("date-session"));
+            String isPayed = req.getParameter("isPayed");
 
             Pompiste pompiste = new Pompiste().getById(Integer.valueOf(req.getParameter("pompiste")), Pompiste.class, null);
             Pompe pompe = new Pompe().getById(Integer.valueOf(req.getParameter("pompe")), Pompe.class, null);
@@ -56,11 +57,6 @@ public class CounterController extends HttpServlet {
             counter.setPompiste(pompiste);
             counter.setProduct(new Product().getById(3, Product.class, null));
 
-            String isPayed = req.getParameter("isPayed");
-
-            System.out.println("-------------------------");
-            System.out.println("IS PAYED HERE : " + isPayed);
-            System.out.println("-------------------------");
 
             counter.setIsPayed(isPayed);
             counter.insert();
